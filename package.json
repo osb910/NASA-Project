@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
