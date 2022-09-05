@@ -4,7 +4,7 @@
   "description": "NASA Mission Control",
   "main": "src/server.js",
   "engines": {
-    "node": "16.17.0"
+    "node": "16"
   },
   "scripts": {
     "test": "jest --detectOpenHandles && cd client npm test",
