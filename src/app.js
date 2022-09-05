@@ -7,20 +7,21 @@ const api = require('./routes/api');
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//   })
-// );
+app.use(
+  cors({
+    // origin: 'http://localhost:3000',
+    origin: '*',
+  })
+);
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   next();
+// });
 
 app.use(morgan('combined'));
 app.use(express.json());
