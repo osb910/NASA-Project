@@ -17,9 +17,12 @@ const app = express();
 //   },
 // };
 
-app.use(cors());
-app.options('*', cors());
-// origin: 'http://localhost:3000',
+app.use(
+  cors({
+    origin: 'http://127.0.0.1:3000',
+  })
+);
+// app.options('*', cors());
 // origin: '*',
 
 // app.use((req, res, next) => {
@@ -46,7 +49,7 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/v1', api);
+app.use('/v1', api);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
