@@ -17,11 +17,8 @@ const app = express();
 //   },
 // };
 
-// app.use(
-//   cors({
-//     origin: 'https://nasa-mission-control-omarsh.vercel.app/',
-//   })
-// );
+app.use(cors());
+app.options('*', cors());
 // origin: 'http://localhost:3000',
 // origin: '*',
 
@@ -51,7 +48,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/v1', api);
 
-app.get('/*', cors(), (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
