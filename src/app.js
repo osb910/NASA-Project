@@ -7,15 +7,15 @@ const api = require('./routes/api');
 
 const app = express();
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // db.loadOrigins is an example call to load
-    // a list of origins from a backing database
-    db.loadOrigins(function (error, origins) {
-      callback(error, origins);
-    });
-  },
-};
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     // db.loadOrigins is an example call to load
+//     // a list of origins from a backing database
+//     db.loadOrigins(function (error, origins) {
+//       callback(error, origins);
+//     });
+//   },
+// };
 
 // app.use(
 //   cors({
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/v1', api);
 
-app.get('/*', cors(corsOptions), (req, res) => {
+app.get('/*', cors(), (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
