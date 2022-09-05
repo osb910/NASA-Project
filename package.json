@@ -15,7 +15,7 @@
     "install-all": "npm install && cd client && npm install",
     "server": "npm run watch",
     "client": "cd client && npm start",
-    "deploy": "cd client && npm run build && cd .. && npm start && npm run client",
+    "deploy": "cd client && npm run build",
     "deploy-cluster": "cd client && npm run build & npm run cluster"
   },
   "keywords": [],
