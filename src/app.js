@@ -7,16 +7,16 @@ const api = require('./routes/api');
 
 const app = express();
 
-// const corsOptions = {
-//   origin: 'http://localhost:3000',
-//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
-app.use(
-  cors({
-    origin: 'https://nasa-mission-control-omarsh.vercel.app/',
-  })
-);
+// app.use(
+//   cors({
+//     origin: 'https://nasa-mission-control-omarsh.vercel.app/',
+//   })
+// );
 // origin: 'http://localhost:3000',
 // origin: '*',
 
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/v1', api);
 
-app.get('/*', (req, res) => {
+app.get('/*', cors(corsOptions), (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
